@@ -1,6 +1,9 @@
 from PIL import Image, ImageDraw, ImageFont
+from urllib.parse import unquote
 
 def makeTextImage(text: str, width: int, height: int):
+    text = unquote(text)
+    
     image = Image.new('RGBA', (width, height), (0, 0, 0, 0))
     draw = ImageDraw.Draw(image)
     words = text.split(' ')
